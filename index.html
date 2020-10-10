@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ya-bara</title>
+    <style type="text/css">
+        @font-face {
+            font-family: "Poppins";
+            font-weight: thin;
+            font-style: normal;
+            src: url('font/Poppins-Thin.ttf');
+        }
+        @font-face {
+            font-family: "Poppins";
+            font-weight: lighter;
+            font-style: normal;
+            src: url('font/Poppins-Light.ttf');
+        }
+        @font-face {
+            font-family: "Poppins";
+            font-weight: regular;
+            font-style: normal;
+            src: url('font/Poppins-Regular.ttf');
+        }
+        @font-face {
+            font-family: "Poppins";
+            font-weight: bold;
+            font-style: normal;
+            src: url('font/Poppins-Bold.ttf');
+        }
+        body{
+            padding: 0px;
+            margin: 0px;
+            font-family: "Poppins";
+        }
+        header{
+            padding: 0px;
+        }
+        .firstbanner{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /* border: 1px solid #eee; */
+            padding: 0px 30px 10px 30px;
+            background: linear-gradient(0deg, rgba(27,27,27,1) 0%, rgba(91,91,91,1) 100%);
+        }
+        .logo{
+            padding: 30px 20px 10px 20px;
+        }
+        .logo h1{
+            color: #fff;
+            line-height: 0em;
+        }
+        .nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav a{
+            padding: 55px 20px 5px 20px;
+            text-transform: uppercase;
+            color:#fff;
+            text-decoration: none;
+            border-radius: 0px 0px 3px 3px;
+            transition: all 0.5s linear;
+        }
+        .nav a:hover{
+            background-color: rgb(255, 183, 0);
+        }
+        .socio{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:rgb(0, 0, 0,0.3);
+            padding: 10px 20px 5px 20px;
+            border-radius: 0px 0px 5px 5px;
+            align-self: flex-start;
+        }
+        .socio a{
+            margin: 0px;
+            padding: 5px;
+        }
+        .socio a:hover{
+            background-color: #fff;
+        }
+        .socio a img{
+            width: 30px;
+        }
+        .secondbanner{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 40px;
+            border-top: 5px solid rgb(255, 183, 0);
+            padding: 0px 50px;
+        }
+        .loginButtons{
+            padding: 0px;
+            transition: all 0.5s linear;
+        }
+        .loginButtons a{
+            padding: 10px 20px;
+            background: linear-gradient(0deg, rgba(27,27,27,1) 0%, rgba(91,91,91,1) 100%);
+            border-radius: 0px 0px 5px 5px;
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.86em;
+            transition: all 0.5s linear;
+        }
+        .loginButtons a:hover{
+            background: linear-gradient(0deg, rgb(255, 89, 0) 0%,rgb(255, 183, 0) 100%);
+        }
+        .bannerImg{
+            width: 100%;
+            height: 350px;
+            background: url(img/656670.jpg) no-repeat;
+            background-size: cover;
+            background-position: bottom;
+            z-index: -1;
+            margin-top: -40px;
+        }
+        .Offes{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .Offes .offre{
+            display: block;
+            width: 150px;
+            height: 150px;
+            /* border: 1px solid #eee; */
+            background-color: #fff;
+            box-shadow: 0px 5px 10px #ddd;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            padding: 30px;
+            text-align: center;
+            margin-top: -100px;
+        }
+        .Offes .offre img{
+            width: 50px;
+            color: rgba(0, 123, 255, 0);
+        }
+        .offre p{
+            color:  rgb(0, 123, 255);
+        }
+        .offre strong{
+            color: rgb(255, 153, 0);
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .form{
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .block7{
+            padding: 20px;
+            border: 1px solid #eee;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .offresDetails{
+            display: grid;
+            grid-template-columns: 5fr 2fr;
+            grid-gap: 30px;
+            width: 80%;
+            margin: 50px auto;
+            padding: 10px 0px;
+        }
+        .form form h3,  .form form small strong{
+            line-height: 0px;
+            color: #333;
+            text-align: center;
+        }
+        h3{
+            font-size: 22px;
+            color: #333;
+        }
+        .form form .form-control{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 10px 0px;
+            width: 100%;
+        }
+        .form-control input[type="text"], .form-control select{
+            width: 100%;
+            padding: 5px 10px;
+        }
+        .form-control textarea{
+            width: 100%;
+            height: 100px;
+        }
+        .form-control input[type="date"]{
+            width: 40%;
+            padding: 5px 5px;
+            margin-left: 10px;
+        }
+        .form-control button{
+            padding: 10px 20px;
+            margin: 5px 10px;
+        }
+        .block7 .ligne{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 6px 10px;
+            border-bottom: 1px solid #eee;
+            color: rgb(0, 123, 255);
+        }
+        .block7 .ligne .dot{
+            padding: 6px;
+            background-color: red;
+            border-radius: 50%;
+            margin: 0px 10px 0px 0px;
+        }
+        .block7 .ligne small{
+            font-size: 0.86em;
+        }
+        .blockA{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 30px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 0px;
+            margin-bottom: 30px;
+        }
+        .blockA .blkv{
+            background-color: #aaa;
+        }
+        .blockA .infos ul{
+            list-style: none;
+            margin-left: 0px;
+        }
+        .blockA .infos ul li{
+            list-style: none;
+            font-weight: regular;
+            color: rgb(0, 123, 255);
+            margin-left: 0px;
+        }
+        .blockA .infos ul li strong{
+            color: rgb(255, 153, 0);
+        }
+        .blockA .infos .button{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .blockA .infos .button button{
+            border: none;
+            border-left: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 5px 5px 0px 0px;
+        }
+        .blockA .infos .button button.active{
+            background: linear-gradient(0deg, rgb(0, 17, 255) 0%,rgb(0, 217, 255) 100%);
+        }
+        .alauneContent{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 60px 20px 30px 20px;
+            margin-bottom: 30px;
+        }
+        .alauneContent .block3, .alauneContent .block4, .alauneContent .block5, .alauneContent .block6{
+            box-shadow: 2px 5px 10px #ddd;
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-gap: 20px;
+            padding: 0px;
+        }
+        .alauneContent .blkv{
+            width: 100%;
+            height: 100%;
+            background-color: #666;
+        }
+        .alauneContent .infos{
+            padding: 10px 0px;
+            margin: 0px;
+        }
+        .alauneContent .infos h5{
+            font-size: 16px;
+            line-height: 0mm;
+            color: #666;
+            margin-left: 0px;
+        }
+        .alauneContent .infos p{
+            font-size: 0.80em;
+            line-height: 1.5em;
+        }
+        .alauneContent .infos button{
+            padding: 5px 20px;
+            border: 1px solid #ccc;
+            /* border-color: #eee; */
+        }
+        .brochure{
+            position: absolute;
+            padding: 5px 15px;
+            background-color: red;
+            text-transform: uppercase;
+            color: #fff;
+            margin-left: -10px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .listOffre{
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        table{
+            width: 100%;
+        }
+        .block3 .blkv{
+            width: 100%;
+            height: 100%;
+            background: url(img/compagny-logo-business.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .block4 .blkv{
+            width: 100%;
+            height: 100%;
+            background: url(img/screen-5.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .block5 .blkv{
+            width: 100%;
+            height: 100%;
+            background: url(img/vector-finance-chart-logo.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .block6 .blkv{
+            width: 100%;
+            height: 100%;
+            background: url(img/company-incorporation.png) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px ;
+            color: #fff;
+            border-top: 5px solid rgb(255, 183, 0);
+            background: linear-gradient(0deg, rgba(27,27,27,1) 0%, rgba(91,91,91,1) 100%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <div class="firstbanner">
+            <div class="logo">
+                <h1>Ya-Bara</h1>
+            </div>
+            <div class="nav">
+                <a href="">Accueil</a>
+                <a href="">Offres</a>
+                <a href="">Entreprises</a>
+                <a href="">Metiers</a>
+                <a href="">Conseils & évenements</a>
+            </div>
+            <div class="socio">
+                <a href="#" class="icon"><img src="img/facebook.png" alt="" srcset=""></a>
+                <a href="#" class="icon"><img src="img/instagram.png" alt=""></a>
+                <a href="#" class="icon"><img src="img/whatsapp 2.png" alt=""></a>
+                <a href="#" class="icon"></a>
+            </div>
+       </div>
+       <div class="secondbanner">
+           <div class="loginButtons">
+               <a href="">Connexion</a>
+               <a href="">Créer un compte</a>
+           </div>
+       </div>
+    </header>
+    <div class="container">
+        <div class="bannerImg"> 
+        </div>
+        <div class="Offes">
+            <div class="offre">
+                <img src="img/Offres.png" alt="">
+                <p>Offres</p>
+                <strong>2536</strong>
+            </div>
+            <div class="offre">
+                <img src="img/Home_free_icon.svg" alt="">
+                <p>Entreprises</p>
+                <strong>52</strong>
+            </div>
+            <div class="offre">
+                <img src="img/metier.png" alt="">
+                <p> Metiers</p>
+                <strong>891</strong>
+            </div>
+        </div>
+        <div class="offresDetails">
+            <div>
+                <div class="blockA">
+                    <div class="blkv"></div>
+                    <div class="infos">
+                        <h3>Post Your Resume</h3>
+                        <ul>
+                            <li><strong>01.</strong> Lorem ipsum dolor sit amet consectetur</li>
+                            <li><strong>02.</strong> Lorem ipsum dolor sit amet consectetur</li>
+                            <li><strong>03.</strong> Lorem ipsum dolor sit, amet consectetur</li>
+                        </ul>
+                        <div class="button">
+                            <button class="active">Post a Resume</button>
+                            <button>Upload a Resume</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="alaune">
+                    <div class="brochure"><small>A la Une</small></div>
+                    <div class="alauneContent">
+                        <div class="block3">
+                            <div class="blkv"></div>
+                            <div class="infos">
+                                <h5>Compagny Name1</h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dicta minima quo...
+                                </p>
+                                <div class="button">
+                                    <button class="active">Postper</button>
+                                    <button>Infos+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block4">
+                            <div class="blkv"></div>
+                            <div class="infos">
+                                <h5>Compagny Name2</h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dicta minima quo...
+                                </p>
+                                <div class="button">
+                                    <button class="active">Postper</button>
+                                    <button>Infos+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block5">
+                            <div class="blkv"></div>
+                            <div class="infos">
+                                <h5>Compagny Name3</h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dicta minima quo...                            </p>
+                                <div class="button">
+                                    <button class="active">Postper</button>
+                                    <button>Infos+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block6">
+                            <div class="blkv"></div>
+                            <div class="infos">
+                                <h5>Compagny Name4</h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dicta minima quo...                            </p>
+                                <div class="button">
+                                    <button class="active">Postuler</button>
+                                    <button>Infos+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="listOffre">
+                    <h3>Les Offres avec Details</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date Validité</th>
+                                <th>Poste</th>
+                                <th>Compagnie</th>
+                                <th>Niveau</th>
+                                <th>Diplome</th>
+                                <th>categorie</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableau">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <div class="form">
+                    <div id="msg"></div>
+                    <form action="" name="insertion">
+                        <h3>Ajouter une Offre</h3>
+                        <small><strong>Attention à l'insertion !</strong><br>
+                            Veillez bien remplie les champs.
+                        </small><br>
+                        <div class="form-control">
+                            <input type="text" placeholder="Entrer l'Intitulé" name="titre" value="">
+                        </div>
+                        <div class="form-control">
+                            <small>Valable Jusqu'au:</small><input type="date" name="validite" id="">
+                        </div>
+                        <div class="form-control">
+                            <small>Niveau: </small>
+                            <select name="niveau" id="">
+                                <option value=""></option>
+                                <option value="Amateur">Amateur(0 an d'experience)</option>
+                                <option value="Débutant">Débutant (2 ans d'expérience)</option>
+                                <option value="Intermediaire">intermediaire (4 ans d'expérience)</option>
+                                <option value="Professionnel">Professionnel (plus de 5 ans d'expérience)</option>
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <input type="text" placeholder="Entrer le diplôme" name="diplom">
+                        </div>
+                        <div class="form-control">
+                            <input type="text" placeholder="Entrer la Boite" name="Entreprise">
+                        </div>
+                        <div class="form-control">
+                            <small>Catégorie: </small>
+                            <select name="categorie" id="">
+                                <option value=""></option>
+                                <option value="Stage de Soutenance">Stage de Soutenance</option>
+                                <option value="stage de Perfectionement">stage de Perfectionement</option>
+                                <option value="">4</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                                <option value="">6</option>
+                                <option value="">7</option>
+                                <option value="">8</option>
+                                <option value="">9</option>
+                                <option value="">10</option>
+                                <option value="">11</option>
+                                <option value="">12</option>
+                                <option value="">13</option>
+                                <option value="">14</option>
+                                <option value="">15</option>
+                                <option value="">16</option>
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <textarea name="description" id="" placeholder="Entrer la description ici"></textarea>
+                        </div>
+                        <div class="form-control">
+                            <button id="submit" type="button" name="button" onClick="formulaire(insertion)">Charger</button>
+                            <button type="reset">Annuler</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="block7">
+                    <h3>Ajouter une Offre</h3>
+                    <a href="#" class="ligne">
+                        <div class="dot"></div>
+                        <small>Stage (10)</small>
+                    </a>
+                    <a href="#" class="ligne">
+                        <div class="dot"></div>
+                        <small>Stage (10)</small>
+                    </a>
+                    <a href="#" class="ligne">
+                        <div class="dot"></div>
+                        <small>Stage (10)</small>
+                    </a>
+                    <a href="#" class="ligne">
+                        <div class="dot"></div>
+                        <small>Stage (10)</small>
+                    </a>
+                    <a href="#" class="ligne">
+                        <div class="dot"></div>
+                        <small>Stage (10)</small>
+                    </a>
+                    <a href="#" class="ligne">
+                        <div class="dot"></div>
+                        <small>Stage (10)</small>
+                    </a>
+                    <a href="#" class="ligne">
+                        <div class="dot"></div>
+                        <small>Stage (10)</small>
+                    </a>
+                    <a href="#" class="ligne">
+                        <div class="dot"></div>
+                        <small>Stage (10)</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="copyright">Fofson Design CopyRight 2020, tout droit réservé !</div>
+    </div>
+</body>
+</html>
+<script src="js/mon_code_js.js"></script>
